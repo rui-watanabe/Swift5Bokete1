@@ -32,7 +32,12 @@ class ShareViewController: UIViewController {
         // take a screenShot
         takeScreenShot()
         
+        let Item = [screenShotImage] as [Any]
+        
         // share with activity view
+        let activityVC = UIActivityViewController(activityItems: Item, applicationActivities: nil)
+        
+        present(activityVC, animated: true, completion: nil)
         
         
     }
@@ -49,6 +54,11 @@ class ShareViewController: UIViewController {
         screenShotImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndPDFContext()
 
+    }
+    
+    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 
