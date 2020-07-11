@@ -7,24 +7,62 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SDWebImage
+import Photos
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var themeImageView: UIImageView!
+    
+    @IBOutlet weak var commentTextView: UITextView!
+    
+    @IBOutlet weak var searchTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        commentTextView.layer.cornerRadius = 20.0
+        
+        PHPhotoLibrary.requestAuthorization{(states) in
+            switch(states)
+            {
+                case .authorized:
+                    break
+                case .denied:
+                    break
+                case .notDetermined:
+                    break
+                case .restricted:
+                    break
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //get some values based on search word(pixabay.com)
+    func getImages(keyword: String) {
+        //APIKEY
+        
+        let url = "https://pixabay.com/api/?key=&q=\(keyword)"
+        
+        //throw http request with Alamofire
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON{ (response) in
+            switch(response.result)
+            {
+                case .success:
+                    let json:JSON = JSON(response.data as Any)
+                
+                    let imageString = json["hits"]
+                
+                case .failure(let error):
+                    print(error)
+            }
+        }
+        
+        //analayze JSON
+        //pasted imageView.image
+        
     }
-    */
-
+    
 }
