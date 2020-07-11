@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     
+    var count = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,8 +54,8 @@ class ViewController: UIViewController {
             {
                 case .success:
                     let json:JSON = JSON(response.data as Any)
-                
-                    let imageString = json["hits"]
+                    let imageString = json["hits"][self.count]["webformatURL"].string
+                    self.themeImageView.sd_setImage(with: URL(string: imageString!), completed: nil)
                 
                 case .failure(let error):
                     print(error)
