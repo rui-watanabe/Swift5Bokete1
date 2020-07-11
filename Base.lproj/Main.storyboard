@@ -45,11 +45,17 @@
                                 <rect key="frame" x="56" y="770" width="315" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Detarmine"/>
+                                <connections>
+                                    <action selector="detemineAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RZb-V1-x2p"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYI-xF-5Xs">
                                 <rect key="frame" x="322" y="77" width="49" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="search"/>
+                                <connections>
+                                    <action selector="searchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="08B-Rf-40B"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.54685674681188723" green="0.98039215690000003" blue="0.76277288893168715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,6 +65,7 @@
                         <outlet property="commentTextView" destination="Yun-yl-c5F" id="sTU-Rz-av8"/>
                         <outlet property="searchTextField" destination="zLX-pb-HWF" id="wtz-Kb-yVU"/>
                         <outlet property="themeImageView" destination="ZfC-Pa-moC" id="2Ec-y4-iiq"/>
+                        <segue destination="DVh-lS-dSf" kind="presentation" identifier="next" modalPresentationStyle="fullScreen" id="Uhg-Qz-yQb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

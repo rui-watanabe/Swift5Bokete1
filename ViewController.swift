@@ -69,6 +69,32 @@ class ViewController: UIViewController {
     
     @IBAction func nextTheme(_ sender: Any) {
         count += 1
-//        getImages(keyword: <#T##String#>)
+        
+        if searchTextField.text == ""
+        {
+            getImages(keyword: "funny")
+        }
+        else
+        {
+            getImages(keyword: searchTextField.text!)
+        }
     }
+    
+    @IBAction func searchAction(_ sender: Any) {
+        self.count = 0
+        
+        if searchTextField.text == ""
+        {
+            getImages(keyword: "funny")
+        }
+        else
+        {
+            getImages(keyword: searchTextField.text!)
+        }
+    }
+    
+    @IBAction func detemineAction(_ sender: Any) {
+        performSegue(withIdentifier: "next", sender: nil)
+    }
+    
 }
