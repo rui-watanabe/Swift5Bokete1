@@ -57,8 +57,18 @@ class ViewController: UIViewController {
                 case .success:
                     //analayze JSON
                     let json:JSON = JSON(response.data as Any)
-                    let imageString = json["hits"][self.count]["webformatURL"].string
+                    var imageString = json["hits"][self.count]["webformatURL"].string
                     self.themeImageView.sd_setImage(with: URL(string: imageString!), completed: nil)
+                
+                    if imageString == nil
+                    {
+                        imageString = json["hits"][0]["webformatURL"].string
+                        self.themeImageView.sd_setImage(with: URL(string: imageString!), completed: nil)
+                    }
+                    else
+                    {
+                        self.themeImageView.sd_setImage(with: URL(string: imageString!), completed: nil)
+                    }
                 
                 case .failure(let error):
                     print(error)
@@ -95,6 +105,12 @@ class ViewController: UIViewController {
     
     @IBAction func detemineAction(_ sender: Any) {
         performSegue(withIdentifier: "next", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let shareVC = segue.description as? ShareViewController
+        shareVC?.commentString = commentTextView.text
+        shareVC?.resultImage = themeImageView.image!
     }
     
 }

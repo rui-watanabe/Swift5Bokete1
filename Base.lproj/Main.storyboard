@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Share View Controller-->
         <scene sceneID="CTW-Nl-wnA">
             <objects>
-                <viewController id="DVh-lS-dSf" sceneMemberID="viewController">
+                <viewController id="DVh-lS-dSf" customClass="ShareViewController" customModule="Swift5Bokete1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UfJ-Tl-40D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,6 +99,9 @@
                                 <rect key="frame" x="50" y="741" width="315" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Share!"/>
+                                <connections>
+                                    <action selector="share:" destination="DVh-lS-dSf" eventType="touchUpInside" id="Cab-bR-dLI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8q-bi-WcD">
                                 <rect key="frame" x="50" y="803" width="315" height="41"/>
@@ -116,6 +119,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="F7g-bN-IPV"/>
                     </view>
+                    <connections>
+                        <outlet property="commentLabel" destination="8kN-gk-XD6" id="3K8-4x-APZ"/>
+                        <outlet property="resultImageView" destination="i9T-d9-Y8x" id="dAN-an-Eyc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqU-4a-EUI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
