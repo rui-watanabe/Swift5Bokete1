@@ -40,6 +40,8 @@ class ViewController: UIViewController {
                     break
             }
         }
+        
+        getImages(keyword: "funny")
     }
     
     //get some values based on search word(pixabay.com)
@@ -53,6 +55,7 @@ class ViewController: UIViewController {
             switch(response.result)
             {
                 case .success:
+                    //analayze JSON
                     let json:JSON = JSON(response.data as Any)
                     let imageString = json["hits"][self.count]["webformatURL"].string
                     self.themeImageView.sd_setImage(with: URL(string: imageString!), completed: nil)
@@ -61,10 +64,11 @@ class ViewController: UIViewController {
                     print(error)
             }
         }
-        
-        //analayze JSON
         //pasted imageView.image
-        
     }
     
+    @IBAction func nextTheme(_ sender: Any) {
+        count += 1
+//        getImages(keyword: <#T##String#>)
+    }
 }

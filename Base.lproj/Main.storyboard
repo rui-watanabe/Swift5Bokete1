@@ -37,6 +37,9 @@
                                 <rect key="frame" x="56" y="703" width="315" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next Theme"/>
+                                <connections>
+                                    <action selector="nextTheme:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jAz-xm-9Ft"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSV-eO-YE1">
                                 <rect key="frame" x="56" y="770" width="315" height="41"/>
